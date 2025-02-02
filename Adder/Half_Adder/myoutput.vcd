@@ -1,0 +1,48 @@
+$date
+	Thu Jul 25 23:36:01 2019
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module tb $end
+$var wire 1 ! cout $end
+$var wire 1 " sum $end
+$var reg 2 # myData [1:0] $end
+$scope module ha $end
+$var wire 1 $ A $end
+$var wire 1 % B $end
+$var wire 1 ! cout $end
+$var wire 1 " sum $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+0%
+0$
+b0 #
+0"
+0!
+$end
+#2
+1"
+1%
+b1 #
+#4
+1$
+0%
+b10 #
+#6
+0"
+1!
+1%
+b11 #
+#8
+0!
+0$
+0%
+b0 #
+#500

@@ -1,0 +1,93 @@
+#! /usr/bin/vvp
+:ivl_version "0.9.7 " "(v0_9_7)";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_0xf137d0 .scope module, "tb" "tb" 2 1;
+ .timescale 0 0;
+v0xf48b80_0 .var "myData", 6 0;
+v0xf48c40_0 .net "y", 0 0, v0xf48a90_0; 1 drivers
+L_0xf48cc0 .part v0xf48b80_0, 6, 1;
+L_0xf48dc0 .part v0xf48b80_0, 5, 1;
+L_0xf48ee0 .part v0xf48b80_0, 4, 1;
+L_0xf48f80 .part v0xf48b80_0, 3, 1;
+L_0xf49110 .part v0xf48b80_0, 2, 1;
+L_0xf491e0 .part v0xf48b80_0, 1, 1;
+L_0xf492b0 .part v0xf48b80_0, 0, 1;
+S_0xf142e0 .scope module, "myMux" "mux_4_1" 2 3, 3 1, S_0xf137d0;
+ .timescale 0 0;
+v0xf13b40_0 .net "e", 0 0, L_0xf492b0; 1 drivers
+v0xf48680_0 .net "i0", 0 0, L_0xf48ee0; 1 drivers
+v0xf48720_0 .net "i1", 0 0, L_0xf48f80; 1 drivers
+v0xf487c0_0 .net "i2", 0 0, L_0xf49110; 1 drivers
+v0xf48870_0 .net "i3", 0 0, L_0xf491e0; 1 drivers
+v0xf48910_0 .net "s0", 0 0, L_0xf48dc0; 1 drivers
+v0xf489f0_0 .net "s1", 0 0, L_0xf48cc0; 1 drivers
+v0xf48a90_0 .var "y", 0 0;
+E_0xf138f0 .event edge, v0xf48910_0, v0xf489f0_0, v0xf13b40_0;
+    .scope S_0xf142e0;
+T_0 ;
+    %wait E_0xf138f0;
+    %load/v 8, v0xf13b40_0, 1;
+    %cmpi/u 8, 0, 1;
+    %jmp/0xz  T_0.0, 4;
+    %set/v v0xf48a90_0, 2, 1;
+    %jmp T_0.1;
+T_0.0 ;
+    %load/v 8, v0xf48910_0, 1;
+    %load/v 9, v0xf489f0_0, 1;
+    %cmpi/u 8, 0, 2;
+    %jmp/1 T_0.2, 6;
+    %cmpi/u 8, 1, 2;
+    %jmp/1 T_0.3, 6;
+    %cmpi/u 8, 2, 2;
+    %jmp/1 T_0.4, 6;
+    %cmpi/u 8, 3, 2;
+    %jmp/1 T_0.5, 6;
+    %jmp T_0.6;
+T_0.2 ;
+    %load/v 8, v0xf48680_0, 1;
+    %set/v v0xf48a90_0, 8, 1;
+    %jmp T_0.6;
+T_0.3 ;
+    %load/v 8, v0xf48720_0, 1;
+    %set/v v0xf48a90_0, 8, 1;
+    %jmp T_0.6;
+T_0.4 ;
+    %load/v 8, v0xf487c0_0, 1;
+    %set/v v0xf48a90_0, 8, 1;
+    %jmp T_0.6;
+T_0.5 ;
+    %load/v 8, v0xf48870_0, 1;
+    %set/v v0xf48a90_0, 8, 1;
+    %jmp T_0.6;
+T_0.6 ;
+T_0.1 ;
+    %jmp T_0;
+    .thread T_0, $push;
+    .scope S_0xf137d0;
+T_1 ;
+    %set/v v0xf48b80_0, 0, 7;
+    %vpi_call 2 8 "$dumpfile", "wave.vcd";
+    %vpi_call 2 9 "$dumpvars", 1'sb0, S_0xf137d0;
+    %delay 500, 0;
+    %vpi_call 2 10 "$finish";
+    %end;
+    .thread T_1;
+    .scope S_0xf137d0;
+T_2 ;
+    %delay 5, 0;
+    %load/v 8, v0xf48b80_0, 7;
+    %mov 15, 0, 25;
+    %addi 8, 1, 32;
+    %ix/load 0, 7, 0;
+    %assign/v0 v0xf48b80_0, 0, 8;
+    %jmp T_2;
+    .thread T_2;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "tb.v";
+    "mux_4_1.v";
