@@ -1,5 +1,5 @@
 $date
-	Thu Jul 25 23:34:25 2019
+	Wed Aug 20 21:52:35 2025
 $end
 $version
 	Icarus Verilog
@@ -13,13 +13,12 @@ $var reg 2 " myData [1:0] $end
 $scope module myAnd $end
 $var wire 1 # a $end
 $var wire 1 $ b $end
-$var reg 1 % y $end
+$var reg 1 ! y $end
 $upscope $end
 $upscope $end
 $enddefinitions $end
 #0
 $dumpvars
-0%
 0$
 0#
 b0 "
@@ -33,12 +32,10 @@ b1 "
 0$
 b10 "
 #15
-1%
 1!
 1$
 b11 "
 #20
-0%
 0!
 0#
 0$
@@ -51,12 +48,10 @@ b1 "
 0$
 b10 "
 #35
-1%
 1!
 1$
 b11 "
 #40
-0%
 0!
 0#
 0$
@@ -69,12 +64,10 @@ b1 "
 0$
 b10 "
 #55
-1%
 1!
 1$
 b11 "
 #60
-0%
 0!
 0#
 0$
@@ -87,12 +80,10 @@ b1 "
 0$
 b10 "
 #75
-1%
 1!
 1$
 b11 "
 #80
-0%
 0!
 0#
 0$
@@ -105,12 +96,10 @@ b1 "
 0$
 b10 "
 #95
-1%
 1!
 1$
 b11 "
 #100
-0%
 0!
 0#
 0$
